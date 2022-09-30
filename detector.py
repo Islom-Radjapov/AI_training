@@ -5,9 +5,9 @@ from shapely.geometry import box
 import argparse
 import pickle
 from pathlib import Path
-from mrcnn.model import MaskRCNN
-import mrcnn.utils
-import mrcnn.config
+from Mask_RCNN.mrcnn.model import MaskRCNN
+from Mask_RCNN.mrcnn import utils
+from Mask_RCNN.mrcnn import config
 import cv2
 import numpy as np
 import git
@@ -18,7 +18,7 @@ if not os.path.exists("Mask_RCNN"):
     git.Git("../../../../parking-space-detection-system-master/").clone("https://github.com/matterport/Mask_RCNN.git")
 
 
-class Config(mrcnn.config.Config):
+class Config(config.Config):
     NAME = "model_config"
     IMAGES_PER_GPU = 1
     GPU_COUNT = 1
@@ -34,7 +34,7 @@ COCO_MODEL_PATH = os.path.join(ROOT_DIR, "mask_rcnn_coco.h5")
 
 print(COCO_MODEL_PATH)
 if not os.path.exists(COCO_MODEL_PATH):
-    mrcnn.utils.download_trained_weights(COCO_MODEL_PATH)
+    utils.download_trained_weights(COCO_MODEL_PATH)
 
 model = MaskRCNN(mode="inference", model_dir=MODEL_DIR, config=Config())
 model.load_weights(COCO_MODEL_PATH, by_name=True)

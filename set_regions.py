@@ -1,15 +1,13 @@
-import os
-import numpy as np
-import cv2
-import pickle
 import argparse
+import os
+import pickle
+
+import cv2
 import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.collections import PatchCollection
 from matplotlib.patches import Polygon
 from matplotlib.widgets import PolygonSelector
-from matplotlib.collections import PatchCollection
-from shapely.geometry import box
-from shapely.geometry import Polygon as shapely_poly
-
 
 points = []
 prev_points = []
@@ -77,7 +75,8 @@ if __name__ == '__main__':
     print("> Try holding the 'ctrl' key to move a single vertex.")
     print("> After marking a quadrilateral press 'n' to save current quadrilateral and then press 'q' to start marking a new quadrilateral")
     print("> When you are done press 'b' to Exit the program\n")
-    
+
+
     video_capture = cv2.VideoCapture(args.video_path)
     cnt=0
     rgb_image = None
