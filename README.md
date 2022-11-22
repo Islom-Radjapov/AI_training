@@ -1,1 +1,1 @@
-# Hackathon-parking_lot_project
+download tesseract: https://github.com/UB-Mannheim/tesseract   windows 64 bit
