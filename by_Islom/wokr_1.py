@@ -1,0 +1,2 @@
+# Traingdan avval
+print()
