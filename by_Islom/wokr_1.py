@@ -1,2 +1,0 @@
-# Traingdan avval
-print()
